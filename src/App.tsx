@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { InputField } from './components/InputField';
 import { Todo } from './todo';
+import { ToDoList } from './components/ToDoList';
 
 const App: React.FC = () => {
   const [todo, setToDo] = useState<string>('');
@@ -9,14 +10,16 @@ const App: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setToDoList([...toDoList, { id: Date.now(), toDo: todo, isDone: false }]);
-    setToDo('');
+    if (todo) {
+      setToDoList([...toDoList, { id: Date.now(), toDo: todo, isDone: false }]);
+      setToDo('');
+    }
   };
   return (
     <div className='App'>
       <span className='heading'>Task Master</span>
       <InputField todo={todo} setToDo={setToDo} onSubmit={handleSubmit} />
-      {toDoList.map((task) => task.toDo)}
+      <ToDoList todo={toDoList} setToDo={setToDoList} />
     </div>
   );
 };
