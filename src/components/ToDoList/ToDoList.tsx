@@ -1,15 +1,30 @@
-import { Todo } from '../../todo';
+import { Todo } from '../../model/todo';
+import { ToDoItem } from '../ToDoItem';
 import './ToDoList.css';
 
 interface Props {
-  todo: Todo[];
-  setToDo: React.Dispatch<React.SetStateAction<Todo[]>>;
+  list: Todo[];
+  setList: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
-const ToDoList = ({ todo, setTodo }: Props) => {
+const ToDoList = ({ list, setList }: Props) => {
   return (
-    <ul className='list'>
-      {todo != null && todo.map((todo) => <li key={todo.id}>{todo.toDo}</li>)}
-    </ul>
+    <div className='container'>
+      <ul className='list'>
+        <span className='list__heading'>Remaining Tasks:</span>
+        {list != null &&
+          list.map((item) => (
+            <ToDoItem key={item.id} item={item} list={list} setList={setList} />
+          ))}
+      </ul>
+
+      <ul className='list remove'>
+        <span className='list__heading'>Finished Tasks:</span>
+        {list != null &&
+          list.map((item) => (
+            <ToDoItem key={item.id} item={item} list={list} setList={setList} />
+          ))}
+      </ul>
+    </div>
   );
 };
 

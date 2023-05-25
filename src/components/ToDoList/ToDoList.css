@@ -1,9 +1,23 @@
+.container {
+  display: flex;
+  width: 95%;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .list {
   display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  margin: 20px;
-  flex-wrap: wrap;
+  width: 47.5%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgb(2, 147, 147);
+}
+
+.list__heading {
+  font-size: 30px;
+  color: white;
 }
 
 li {

@@ -20,6 +20,7 @@ const InputField = ({ todo, setToDo, onSubmit }: Props) => {
       <input
         ref={inputRef}
         type='text'
+        autoFocus
         placeholder='Add a task'
         className='input__box'
         value={todo}

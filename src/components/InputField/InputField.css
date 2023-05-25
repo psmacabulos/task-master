@@ -1,7 +1,6 @@
 .input {
   display: flex;
-  min-width: 40%;
-  max-width: 60%;
+  min-width: 50%;
   position: relative;
   justify-content: center;
 }
@@ -37,4 +36,7 @@
 }
 .input__submit:active {
   transform: scale(0.9);
+}
+.input {
+  margin-bottom: 30px;
 }
